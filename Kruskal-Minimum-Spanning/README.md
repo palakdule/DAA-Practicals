@@ -1,31 +1,38 @@
-# Practical 09 - Arbitrage Detection using Bellman-Ford Algorithm
+# Practical 5 - Kruskal's Minimum Spanning Tree
 
 ## Aim
 
-To apply the **Bellman-Ford Algorithm** to detect negative weight cycles in a currency exchange graph, representing a potential arbitrage opportunity.
+To implement Kruskal's Minimum Spanning Tree (MST) algorithm to find the minimum cost required to connect all vertices in a weighted graph.
 
 ## Problem Statement
 
-Currencies are modelled as graph vertices, while exchange rates are represented as weighted edges. The exchange rates are converted into negative logarithms so that multiplication of exchange rates is transformed into addition.
+A government is planning a nationwide high-speed fiber internet network connecting multiple cities. Each possible cable connection between cities has a different installation cost. The government wants to connect all cities while minimizing the total construction cost.
 
-A negative weight cycle in the graph represents a potential risk-free arbitrage opportunity.
+Your task is to determine the minimum total cost required to connect all cities using Kruskal's Minimum Spanning Tree Algorithm.
 
 ## Algorithm
 
-1. Initialize the distance of all vertices to `0`.
-2. Relax all edges repeatedly for `V` iterations.
-3. For each edge, check whether a shorter distance can still be obtained.
-4. If an edge can still be relaxed after `V` iterations, a negative weight cycle exists.
-5. Print `Arbitrage Detected` if a negative cycle is found.
-6. Otherwise, print `No Arbitrage`.
+1. Read the number of vertices and edges.
+2. Input all edges with their source, destination, and weight.
+3. Sort all edges in ascending order of weight.
+4. Initialize each vertex as a separate set.
+5. Traverse the sorted edges:
+   - If adding an edge does not form a cycle, include it in the MST.
+   - Merge the two sets using Union-Find.
+6. Continue until all vertices are connected.
+7. Display the minimum cost of the Minimum Spanning Tree.
 
 ## Time Complexity
 
-- **O(V × E)**
+- Sorting edges: **O(E log E)**
+- Union-Find operations: **O(E α(V))**
+- Overall: **O(E log E)**
+
+> Here, α(V) (Inverse Ackermann Function) grows extremely slowly and is considered nearly constant in practice.
 
 ## Space Complexity
 
-- **O(V)**
+- **O(V + E)**
 
 ## Language Used
 
@@ -33,11 +40,11 @@ A negative weight cycle in the graph represents a potential risk-free arbitrage 
 
 ## File
 
-- `arbitrageDetection.c`
+- `kruskal_mst.c`
 
 ## Learning Outcome
 
-- Understood the Bellman-Ford Algorithm.
-- Learned how to detect negative weight cycles.
-- Understood how arbitrage opportunities can be represented using graph algorithms.
-- Learned to identify potential arbitrage through negative cycle detection.
+- Understood the Greedy approach used in Kruskal's Algorithm.
+- Learned how Union-Find (Disjoint Set) helps detect cycles efficiently.
+- Implemented Minimum Spanning Tree construction using edge sorting.
+- Analyzed the time and space complexity of Kruskal's Algorithm.
