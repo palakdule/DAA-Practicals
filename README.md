@@ -58,7 +58,6 @@ The program assigns colours to the vertices of a graph such that no two adjacent
 
 ```text
 DAA-Practicals/
-│
 ├── Arbitrage-Detection/
 ├── Binary-Search/
 ├── Dijkstra-Shortest-Path/
@@ -71,7 +70,6 @@ DAA-Practicals/
 ├── Strassen-Matrix-Multiplication/
 ├── Time-and-Space-Complexity/
 ├── Travelling-Salesman-Problem/
-│
 └── README.md
 ```
 
